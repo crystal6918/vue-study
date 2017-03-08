@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gigi's todo in vue</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<section>
+  			<h2>gigi's todo in vue</h2>
+  				<div id="todoapp">
+    				<input type="text" v-model="content" v-on:keyup.enter="addItem" v-on:click="clear">
+    				<ul v-show="items.length">
+      					<li v-for="item in items" v-bind:class="{finish:item.finished}" v-on:dblclick="editItem(item)">
+       						<input type="checkbox" v-model="item.finished" v-bind:value="item.finished" >
+        					<label >{{item.title}}</label>
+        					<input type="text" v-if="item.edit" v-model="item.title" v-on:keyup.enter="finishEdit(item)" v-on:keyup.esc="quitEdit(item)">
+      					</li>
+    				</ul>
+  				</div>
+		</section>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
