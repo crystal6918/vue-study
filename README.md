@@ -7,6 +7,8 @@
 	 - 双击todo项目进行编辑
 	 - 已完成todo不能再编辑
 
+[在线demo](https://jsfiddle.net/fucv6tmn/)
+
 ---
 
  - next version
