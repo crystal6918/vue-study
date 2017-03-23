@@ -1,11 +1,33 @@
+var filters = {
+  all:function(items){
+    return items;
+  },
+  active:function(items){
+    return items.filter(function(item){
+        return !item.finished;
+      });
+  },
+  finished:function(items){
+    return items.filter(function(item){
+        return item.finished;
+      });
+  }
+
+}
+
 new Vue({
 	el:'#todoapp',
   data:{
   	content:'press enter to finish add ',
     items:[],
-    edit:false
+    edit:false,
+    visibility:'all',
+    filterItems:[],
   },
   methods:{
+    filter:function(visibility){
+      this.visibility = visibility;
+    },
   	clear:function(){
     	this.content = '';
     },
@@ -37,5 +59,15 @@ new Vue({
     	item.title = this.cache;
       item.edit = false;
     }
+  },
+  watch:{
+    items:function(){
+      this.filterItems = filters[this.visibility](this.items);
+    },
+    visibility:function(){
+      this.filterItems = filters[this.visibility](this.items);
+    }
   }
-})
+
+});
+

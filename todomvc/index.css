@@ -50,3 +50,11 @@ li>input[type='text']{
     width: 92%;
     margin-top: -1px;
 }
+.filter{
+  margin-top:10px;
+}
+.filter a.active{
+  border:1px solid #249d7f;
+  border-radius:3px;
+  padding: 3px;
+}
