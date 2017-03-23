@@ -50,11 +50,23 @@ li>input[type='text']{
     width: 92%;
     margin-top: -1px;
 }
+li span{
+  float:right;
+  margin-right:10px;
+  cursor:pointer;
+}
 .filter{
   margin-top:10px;
+}
+.filter a{
+  cursor:pointer;
 }
 .filter a.active{
   border:1px solid #249d7f;
   border-radius:3px;
   padding: 3px;
+}
+.count{
+  margin-top: 10px;
+  color:#a8a8a8;
 }

@@ -23,6 +23,7 @@ new Vue({
     edit:false,
     visibility:'all',
     filterItems:[],
+    cache:""
   },
   methods:{
     filter:function(visibility){
@@ -51,6 +52,9 @@ new Vue({
       this.cache = item.title;
       item.edit = true;
       
+    },
+    removeItem:function(item){
+      this.items.splice(this.items.indexOf(item),1);
     },
     finishEdit:function(item){
     	item.edit = false;

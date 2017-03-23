@@ -14,14 +14,20 @@
                 <input type="checkbox" v-model="item.finished" v-bind:value="item.finished" >
                 <label >{{item.title}}</label>
                 <input type="text" v-if="item.edit" v-model="item.title" v-on:keyup.enter="finishEdit(item)" v-on:keyup.esc="quitEdit(item)">
+                <span v-on:click="removeItem(item)">x</span>
               </li>
             </ul>
+
             <div class="filter">
               <a v-on:click="filter('all')" v-bind:class="{active:visibility == 'all'}">all</a>
               <a v-on:click="filter('active')" v-bind:class="{active:visibility == 'active'}">active</a>
               <a v-on:click="filter('finished')" v-bind:class="{active:visibility == 'finished'}">finished</a>
             </div>
-    				
+    				<div class="count">
+              <span v-if="items.length<2">{{items.length}} item left</span>
+              <span v-else>{{items.length}} items left</span>
+              
+            </div>
   				</div>
 		</section>
 		<script src="https://unpkg.com/vue/dist/vue.js"></script>
